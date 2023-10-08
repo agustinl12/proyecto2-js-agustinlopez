@@ -24,18 +24,53 @@ botonesAgregar.forEach(boton => {
         carrito.push({ nombre, precio });
         total += precio;
 
-        const carritoElement = document.getElementById("carrito");
-        const totalElement = document.getElementById("total");
+        localStorage.setItem("carrito", JSON.stringify(carrito));
 
+        actualizarCarrito();
 
-        const li = document.createElement("li");
-        li.textContent = `${nombre} - $${precio.toFixed(2)}`;
-        carritoElement.appendChild(li);
-
-
-
-        totalElement.textContent = `Total: $${total.toFixed(2)}`;
-        console.log(`"${nombre}" ha sido añadido al carrito.`);
-        console.log(`Total actual: $${total.toFixed(2)}`);
+        // Agregar una alerta para notificar al usuario
+        alert(`"${nombre}" ha sido añadido al carrito.`);
     });
 });
+
+function actualizarCarrito() {
+    const carritoElement = document.getElementById("carrito");
+    const totalElement = document.getElementById("total");
+
+    carritoElement.innerHTML = "";
+    carrito.forEach((item, index) => {
+        const li = document.createElement("li");
+        li.innerHTML = `
+                ${item.nombre} - $${item.precio.toFixed(2)}
+                <button onclick="eliminarProducto(${index})">Eliminar</button>
+                <input type="number" min="1" value="1" onchange="actualizarCantidad(${index}, this.value)">
+            `;
+        carritoElement.appendChild(li);
+    });
+
+    totalElement.textContent = `Total: $${total.toFixed(2)}`;
+}
+
+function eliminarProducto(index) {
+    const producto = carrito[index];
+    total -= producto.precio;
+    carrito.splice(index, 1);
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+    actualizarCarrito();
+}
+
+function actualizarCantidad(index, cantidad) {
+    const producto = carrito[index];
+    total -= producto.precio;
+    producto.precio *= cantidad;
+    total += producto.precio;
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+    actualizarCarrito();
+}
+
+const carritoGuardado = JSON.parse(localStorage.getItem("carrito"));
+if (carritoGuardado) {
+    carrito = carritoGuardado;
+    total = carrito.reduce((acc, item) => acc + item.precio, 0);
+    actualizarCarrito();
+}
