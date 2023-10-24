@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MiTienda</title>
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 </head>
 <body>
     <header>
@@ -43,14 +44,19 @@
         </div>
     </div>
 
-    <h2>Carrito de Compras</h2>
-    <ul id="carrito">
-        <!-- aca se van a mostrar los productos en el carrito -->
-    </ul>
+    <div class="carrito">
+        <h2>Carrito de Compras</h2>
+        <ul id="carrito">
+            <!-- aca se van a mostrar los productos en el carrito -->
+        </ul>
+        <h2>Total:</h2>
+        <p id="total">$0.00</p>
+        <button id="botonPagar" class="comprar-carrito">Pagar</button>
+    </div>
+</div>
 
-    <h2>Total:</h2>
-    <p id="total">$0.00</p>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src=" https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="main.js"></script>
 </body>
 </html>
