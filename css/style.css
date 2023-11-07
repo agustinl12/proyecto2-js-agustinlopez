@@ -14,69 +14,64 @@ h1 {
     margin: 0;
 }
 
+/* Estilo para el contenedor principal */
 .container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin: 20px auto;
-    max-width: 800px;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
-.product {
-    width: 31%;
-    margin-right: 1%;
+/* Estilo para el contenedor de productos */
+.producto {
     border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 20px;
     border-radius: 5px;
-    background-color: #fff;
+    margin: 10px;
+    padding: 10px;
+    width: 30%;
     text-align: center;
 }
 
-.product:last-child {
-    margin-right: 0;
-}
-
-.product h2 {
-    font-size: 16px;
-    margin: 0 0 10px;
-}
-
-.product img {
+.producto img {
     max-width: 100%;
+    height: auto;
 }
 
-.product p {
-    margin: 0;
+.producto h2 {
+    font-size: 18px;
+    color: #333;
+    margin: 10px 0;
+}
+
+.producto p {
     font-size: 14px;
+    color: #666;
 }
 
-.product button {
-    background-color: #1808f4;
+/* Estilo para el botón "Añadir al carrito" */
+button {
+    background-color: #007bff;
     color: #fff;
     border: none;
+    border-radius: 5px;
     padding: 5px 10px;
-    border-radius: 3px;
     cursor: pointer;
+    font-size: 16px;
 }
 
-.product button:hover {
-    background-color: #cf1346;
+button:hover {
+    background-color: #0056b3;
 }
 
-/* Estilos para la sección del carrito */
+/* Estilo para el carrito de compras */
 .carrito {
-    border: 1px solid #ccc;
-    background-color: #f5f5f5;
-    padding: 20px;
-    max-width: 300px;
+    max-width: 400px;
     margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
     text-align: center;
-}
-
-.carrito h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
 }
 
 #carrito {
@@ -85,28 +80,27 @@ h1 {
 }
 
 #carrito li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #ddd;
-    padding: 10px 0;
+    margin: 5px 0;
 }
 
 #total {
-    font-size: 18px;
-    font-weight: bold;
-    margin-top: 20px;
+    font-size: 20px;
+    color: #333;
+    margin: 10px 0;
 }
 
-/* Estilos para el botón "Añadir al carrito" en el carrito */
 .comprar-carrito {
-    background-color: #007bff;
+    background-color: #28a745;
     color: #fff;
     border: none;
-    padding: 10px;
+    border-radius: 5px;
+    padding: 10px 20px;
     cursor: pointer;
-    font-size: 16px;
-    margin-top: 10px;
+    font-size: 18px;
+}
+
+.comprar-carrito:hover {
+    background-color: #1f7922;
 }
 
 /* Estilos para hacer la página responsive */
@@ -114,20 +108,21 @@ h1 {
     .container {
         flex-direction: column;
     }
-    .product {
+
+    .producto {
         width: 100%;
     }
 }
 
 /* Estilos para mejorar la apariencia de los productos y carrito */
-.product {
+.producto {
     border: 1px solid #ccc;
     padding: 20px;
     margin: 10px;
     text-align: center;
 }
 
-.product img {
+.producto img {
     max-width: 100%;
 }
 
